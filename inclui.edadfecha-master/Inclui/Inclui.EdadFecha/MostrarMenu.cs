@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace inclui.edadfecha
 {
@@ -24,6 +26,16 @@ namespace inclui.edadfecha
             Console.WriteLine("6 - Calcular la diferencia entre las dos fechas, en años.");
             Console.WriteLine("7 - Calcular la diferencia entre las dos fechas, en dias.");
             Console.WriteLine("8 - Salir del programa.");
+        }
+        /// <summary>
+        /// Muestra el menú de Lenguajes disponibles
+        /// </summary>
+        /// <param name="idiomas">Lista de Idiomas disponibles</param>
+        public static void Lenguaje(string[] idiomas)
+		{
+            Console.WriteLine("*******************************************************");
+            idiomas.ToList().ForEach(idioma => Console.WriteLine(idioma));
+            Console.WriteLine("*******************************************************");
         }
     }
 }

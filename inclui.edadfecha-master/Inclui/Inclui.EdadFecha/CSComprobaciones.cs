@@ -231,11 +231,15 @@ namespace inclui.edadfecha
 
 
         /// <summary>
-        /// Fucion la cual usaremos para cada vez que hagamos un paso limpiar pantalla
+        /// Fución la cual usaremos para cada vez que hagamos un paso limpiar pantalla, y si hay un error, lo muestra (MODIFICADO)
         /// </summary>
-        public static void Continuar()
+        public static void Continuar(string mensaje)
         {
-            Console.WriteLine("Introduzca una tecla para continuar.");
+			if (mensaje != "")
+			{
+				Console.WriteLine("\nERROR: " + mensaje + "...");
+			}
+            Console.WriteLine("\nPulse una tecla para continuar.");
             Console.ReadKey(true);
             Console.Clear();
         }

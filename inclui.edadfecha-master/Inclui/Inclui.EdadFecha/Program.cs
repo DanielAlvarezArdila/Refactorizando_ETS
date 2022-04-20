@@ -8,6 +8,26 @@ namespace inclui.edadfecha
     /// </summary>
     class Program
     {
+        /*                          ¡LEER ANTES DE TRABAJAR!
+         *                          
+         *          Cada vez que creemos (NUEVO), modifiquemos o eliminemos*(ELIMINADO) 
+         *          una función original, dejar reflejado con un estado en el SUMMARY.
+         *          Ejemplo: el Program.Continuar ha sido (MODIFICADO) para 
+         *          que haga una cosa más que el original.
+         *          
+         *          *En vez de eliminar, comentar la parte a eliminar (si es
+         *          una variable insignificante, eliminar directamente), 
+         *          siendo lo recomendado en las funciones/los métodos. 
+         *          Para dar constancia  de que existió, pero está inutilizado.
+         *          
+         *          TL;DR: no eliminar funciones, poner si es NUEVO, MODIFICADO
+         *          o ELIMINADO en el summary para que sea visible la mejora del
+         *          código, de NUESTRO código.
+         * 
+         */
+
+
+
         static void Main(string[] args)
         {
 
@@ -67,7 +87,7 @@ namespace inclui.edadfecha
                         break;
                 }
 
-                CSComprobaciones.Continuar();
+                CSComprobaciones.Continuar("");
 
             } while (opcion != 8);
         }

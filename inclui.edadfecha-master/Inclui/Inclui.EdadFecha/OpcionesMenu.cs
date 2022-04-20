@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace inclui.edadfecha
 {
@@ -61,7 +62,27 @@ namespace inclui.edadfecha
 
             return valor;
         }
+        /// <summary>
+        /// Lee la opción del usuario al seleccionar el Idioma del Programa (INCOMPLETO)
+        /// </summary>
+        /// <param name="mensaje">Mensaje a Mostrar</param>
+        /// <param name="lenguajes">Array que contiene los idiomas disponibles</param>
+        public static void LeerOpcionesLenguaje(string mensaje, string[] lenguajes)
+        {
+            Console.WriteLine("\n" + mensaje);
+            string opcion = Console.ReadLine().Trim().ToUpper();
 
+            if (lenguajes.Contains(opcion))
+            {
+                switch (opcion)
+                {
+                    case "ES": break;       //Español
+                    case "EN": break;       //Inglés
+                    case "FR": break;       //Francés
+                    default: break;
+                }
 
+            }
+        }
     }
 }
