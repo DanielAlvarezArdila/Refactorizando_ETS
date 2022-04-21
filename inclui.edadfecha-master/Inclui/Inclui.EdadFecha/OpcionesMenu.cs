@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace inclui.edadfecha
@@ -67,8 +68,11 @@ namespace inclui.edadfecha
         /// </summary>
         /// <param name="mensaje">Mensaje a Mostrar</param>
         /// <param name="lenguajes">Array que contiene los idiomas disponibles</param>
-        public static void LeerOpcionesLenguaje(string mensaje, string[] lenguajes)
+        /// <returns>Devuelve TODOS los memnsajes que se muestran por pantalla en el idioma elegido</returns>
+        public static string[] LeerOpcionesLenguaje(string mensaje, List<string> lenguajes)
         {
+
+            string[] idiomaElegido = new string[0];
             Console.WriteLine("\n" + mensaje);
             string opcion = Console.ReadLine().Trim().ToUpper();
 
@@ -76,13 +80,18 @@ namespace inclui.edadfecha
             {
                 switch (opcion)
                 {
-                    case "ES": break;       //Español
-                    case "EN": break;       //Inglés
-                    case "FR": break;       //Francés
-                    default: break;
+                    /*CARGAR FICHERO EN MEMORIA*/
+                    case "ES": idiomaElegido = new string[1]; break;       //Español
+                    case "EN": idiomaElegido = new string[1]; break;       //Inglés
+                    case "FR": idiomaElegido = new string[1]; break;       //Francés
                 }
-
             }
+			else
+			{
+                CSComprobaciones.Continuar("Idioma No Válido");
+			}
+
+            return idiomaElegido;
         }
     }
 }

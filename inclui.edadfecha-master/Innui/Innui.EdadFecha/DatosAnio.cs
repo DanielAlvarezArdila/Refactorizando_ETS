@@ -5,7 +5,7 @@ namespace inclui.edadfecha
     /// <summary>
     /// Clase en la cual tendremos el struct 
     /// con la propiedadad que tendra el año y la 
-    /// fecha que ponga el usuario
+    /// fecha que ponga el usuario (MODIFICADO)
     /// </summary>
     public class DatosAnio
     {
@@ -13,6 +13,7 @@ namespace inclui.edadfecha
         {
             public DateTime fecha;
             public bool antesCristo;
+            public bool Modificado;
         }
 
     }

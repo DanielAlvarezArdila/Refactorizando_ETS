@@ -28,13 +28,13 @@ namespace inclui.edadfecha
             Console.WriteLine("8 - Salir del programa.");
         }
         /// <summary>
-        /// Muestra el menú de Lenguajes disponibles
+        /// Muestra el menú de Lenguajes disponibles (NUEVO)
         /// </summary>
         /// <param name="idiomas">Lista de Idiomas disponibles</param>
-        public static void Lenguaje(string[] idiomas)
+        public static void Lenguaje(List<string> idiomas)
 		{
             Console.WriteLine("*******************************************************");
-            idiomas.ToList().ForEach(idioma => Console.WriteLine(idioma));
+			idiomas.ForEach(idioma => Console.WriteLine(idioma));
             Console.WriteLine("*******************************************************");
         }
     }

@@ -1,14 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace inclui.edadfecha
 {
-    /// <summary>
-    /// Clase inicial en la cual tendremos el menu y 
-    /// las llamadas a las funciones del programa
-    /// </summary>
-    class Program
-    {
-        /*                          ¡LEER ANTES DE TRABAJAR!
+	/// <summary>
+	/// Clase inicial en la cual tendremos el menu y 
+	/// las llamadas a las funciones del programa (MODIFICADO)
+	/// </summary>
+	class Program
+	{
+		/*                          ¡LEER ANTES DE TRABAJAR!
          *                          
          *          Cada vez que creemos (NUEVO), modifiquemos o eliminemos*(ELIMINADO) 
          *          una función original, dejar reflejado con un estado en el SUMMARY.
@@ -28,68 +30,141 @@ namespace inclui.edadfecha
 
 
 
-        static void Main(string[] args)
-        {
+		static void Main(string[] args)
+		{
+			//(MODIFICADO)
+			string[] idioma = EscogerLenguaje();
+			Funcionamiento(idioma);
+		}
 
-            DatosAnio.InformacionAnio primeraFecha = new DatosAnio.InformacionAnio();
-            DatosAnio.InformacionAnio segundaFecha = new DatosAnio.InformacionAnio();
-            DatosAnio.InformacionAnio fechaActual = new DatosAnio.InformacionAnio
-            {
-                fecha = DateTime.Today,
-                antesCristo = false
-            };
+		/// <summary>
+		/// Indica al usuario el Idioma del Programa a escoger (NUEVO, INCOMPLETO)
+		/// </summary>
+		private static string[] EscogerLenguaje()
+		{
+			string[] auxIdioma = new string[0];
+			//HACER COMPROBACION DE CUANTOS FICHEROS EXISTEN (RETURN List<string> IDIOMAS)
 
-            int opcion;
-            int diferenciaAnio;
-            int diferenciaDias;
-            bool leido = false;
-            do
-            {
-                if (leido)
-                {
-                    MostrarMenu.Menu();
-                    opcion = OpcionesMenu.LeerOpciones();
-                }
-                else
-                {
-                    opcion = 1;
-                }
-                switch (opcion)
-                {
-                    case 1:
-                        primeraFecha = CSComprobaciones.SolicitarFecha("Introduzca la primera fecha");
-                        segundaFecha = CSComprobaciones.SolicitarFecha("Introduzca la segunda fecha");
-                        leido = true;
-                        break;
-                    case 2:
-                        diferenciaAnio = CSComprobaciones.DevolverDiferenciaAnios(primeraFecha, fechaActual);
-                        Console.WriteLine("La diferencia de años entre {0} y {1} es de {2} años", primeraFecha.fecha, fechaActual.fecha, diferenciaAnio);
-                        break;
-                    case 3:
-                        diferenciaDias = CSComprobaciones.DevolverDiferenciaDias(primeraFecha, fechaActual);
-                        Console.WriteLine("La diferencia de días entre {0} y {1} es de {2} días", primeraFecha.fecha, fechaActual.fecha, diferenciaDias);
-                        break;
-                    case 4:
-                        diferenciaAnio = CSComprobaciones.DevolverDiferenciaAnios(segundaFecha, fechaActual);
-                        Console.WriteLine("La diferencia de años entre {0} y {1} es de {2} años", segundaFecha.fecha, fechaActual.fecha, diferenciaAnio);
-                        break;
-                    case 5:
-                        diferenciaDias = CSComprobaciones.DevolverDiferenciaDias(segundaFecha, fechaActual);
-                        Console.WriteLine("La diferencia de días entre {0} y {1} es de {2} días", segundaFecha.fecha, fechaActual.fecha, diferenciaDias);
-                        break;
-                    case 6:
-                        diferenciaAnio = CSComprobaciones.DevolverDiferenciaAnios(primeraFecha, segundaFecha);
-                        Console.WriteLine("La diferencia de años entre {0} y {1} es de {2} años", primeraFecha.fecha, segundaFecha.fecha, diferenciaAnio);
-                        break;
-                    case 7:
-                        diferenciaDias = CSComprobaciones.DevolverDiferenciaDias(primeraFecha, segundaFecha);
-                        Console.WriteLine("La diferencia de días entre {0} y {1} es de {2} días", primeraFecha.fecha, segundaFecha.fecha, diferenciaDias);
-                        break;
-                }
+			//Lo que debe conteners idiomas (para un mostrado más sencillo y rápido) --> "\t- Español: esp"
+			List<string> idiomasDetectados = new List<string>(); //de 3, como ejemplo
+			bool salida = false;
+			do
+			{
+				MostrarMenu.Lenguaje(idiomasDetectados);
+				auxIdioma = OpcionesMenu.LeerOpcionesLenguaje("Choose an Option: ", idiomasDetectados);        //NO TRADUCIR
 
-                CSComprobaciones.Continuar("");
+				if (auxIdioma.Length > 0)
+				{
+					salida = true;
+				}
+				Console.Clear();
+			} while (!salida);
 
-            } while (opcion != 8);
-        }
-    }
+			return auxIdioma;
+		}
+
+		/// <summary>
+		/// Llama al .funcionamiento del Programa (NUEVO)
+		/// </summary>
+		/// <param name="idiomas">Idioma Elegido</param>
+		private static void Funcionamiento(string[] idiomas)
+		{
+
+			DatosAnio.InformacionAnio primeraFecha = new DatosAnio.InformacionAnio { Modificado = false };
+			DatosAnio.InformacionAnio segundaFecha = new DatosAnio.InformacionAnio { Modificado = false };
+			DatosAnio.InformacionAnio fechaActual = new DatosAnio.InformacionAnio
+			{
+				fecha = DateTime.Today,
+				antesCristo = false,
+				Modificado = true
+			};
+
+			int opcion;
+			int diferenciaAnio;
+			int diferenciaDias;
+			bool leido = ((primeraFecha.Modificado) && (segundaFecha.Modificado));
+			do
+			{
+				MostrarMenu.Menu();
+				opcion = OpcionesMenu.LeerOpciones();
+				string idioma = "eng";
+				string mensajeError = "";
+				switch (opcion)
+				{
+					case 1:
+						primeraFecha = CSComprobaciones.SolicitarFecha("Introduzca la primera fecha", idioma);
+						segundaFecha = CSComprobaciones.SolicitarFecha("Introduzca la segunda fecha", idioma);
+						break;
+					case 2:
+						if (leido) 
+						{
+							diferenciaAnio = CSComprobaciones.DevolverDiferenciaAnios(primeraFecha, fechaActual);
+							Console.WriteLine("La diferencia de años entre {0} y {1} es de {2} años", primeraFecha.fecha, fechaActual.fecha, diferenciaAnio);
+						}
+						else
+						{
+							CSComprobaciones.Continuar("No se ha DETECTADO fechas");
+						}
+						break;
+					case 3:
+						if (leido)
+						{
+						diferenciaDias = CSComprobaciones.DevolverDiferenciaDias(primeraFecha, fechaActual);
+						Console.WriteLine("La diferencia de días entre {0} y {1} es de {2} días", primeraFecha.fecha, fechaActual.fecha, diferenciaDias);
+						}
+						else
+						{
+							CSComprobaciones.Continuar("No se ha DETECTADO fechas");
+						}
+						break;
+					case 4:
+						if (leido)
+						{
+							diferenciaAnio = CSComprobaciones.DevolverDiferenciaAnios(segundaFecha, fechaActual);
+							Console.WriteLine("La diferencia de años entre {0} y {1} es de {2} años", segundaFecha.fecha, fechaActual.fecha, diferenciaAnio);
+						}
+						else
+						{
+							CSComprobaciones.Continuar("No se ha DETECTADO fechas");
+						}						
+						break;
+					case 5:
+						if (leido)
+						{
+							diferenciaDias = CSComprobaciones.DevolverDiferenciaDias(segundaFecha, fechaActual);
+							Console.WriteLine("La diferencia de días entre {0} y {1} es de {2} días", segundaFecha.fecha, fechaActual.fecha, diferenciaDias);
+						}
+						else
+						{
+							CSComprobaciones.Continuar("No se ha DETECTADO fechas");
+						}
+						break;
+					case 6:
+						if (leido)
+						{
+							diferenciaAnio = CSComprobaciones.DevolverDiferenciaAnios(primeraFecha, segundaFecha);
+							Console.WriteLine("La diferencia de años entre {0} y {1} es de {2} años", primeraFecha.fecha, segundaFecha.fecha, diferenciaAnio);
+						}
+						else
+						{
+							CSComprobaciones.Continuar("No se ha DETECTADO fechas");
+						}
+						break;
+					case 7:
+						if (leido)
+						{
+							diferenciaDias = CSComprobaciones.DevolverDiferenciaDias(primeraFecha, segundaFecha);
+							Console.WriteLine("La diferencia de días entre {0} y {1} es de {2} días", primeraFecha.fecha, segundaFecha.fecha, diferenciaDias);
+						}
+						else
+						{
+							CSComprobaciones.Continuar("No se ha DETECTADO fechas");
+						}
+						break;
+				}
+				CSComprobaciones.Continuar(mensajeError);
+
+			} while (opcion != 8);
+		}
+	}
 }
