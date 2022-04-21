@@ -46,19 +46,16 @@ namespace inclui.edadfecha
         /// <returns>Devolvera la tecla pulsada por el usuario</returns>
         public static char LeerOpcionFecha()
         {
-            ConsoleKeyInfo tecla;
             char valor = ' ';
             bool fin = false;
             do
             {
-                tecla = Console.ReadKey(true);
-                switch (tecla.KeyChar)
+                char tecla = Console.ReadKey(true).KeyChar;
+                switch (tecla)
                 {
                     case 's': valor = 's'; fin = true; break;
                     case 'n': valor = 'n'; fin = true; break;
-
                 }
-
             } while (!fin);
 
             return valor;

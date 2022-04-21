@@ -33,7 +33,7 @@ namespace inclui.edadfecha
 		static void Main(string[] args)
 		{
 			//(MODIFICADO)
-			string[] idioma = EscogerLenguaje();
+			string[] idioma = new string[0];//EscogerLenguaje();
 			Funcionamiento(idioma);
 		}
 
@@ -69,7 +69,6 @@ namespace inclui.edadfecha
 		/// <param name="idiomas">Idioma Elegido</param>
 		private static void Funcionamiento(string[] idiomas)
 		{
-
 			DatosAnio.InformacionAnio primeraFecha = new DatosAnio.InformacionAnio { Modificado = false };
 			DatosAnio.InformacionAnio segundaFecha = new DatosAnio.InformacionAnio { Modificado = false };
 			DatosAnio.InformacionAnio fechaActual = new DatosAnio.InformacionAnio
@@ -92,8 +91,8 @@ namespace inclui.edadfecha
 				switch (opcion)
 				{
 					case 1:
-						primeraFecha = CSComprobaciones.SolicitarFecha("Introduzca la primera fecha", idioma);
-						segundaFecha = CSComprobaciones.SolicitarFecha("Introduzca la segunda fecha", idioma);
+						primeraFecha = CSComprobaciones.SolicitarFecha("Introduzca la primera fecha");
+						segundaFecha = CSComprobaciones.SolicitarFecha("Introduzca la segunda fecha");
 						break;
 					case 2:
 						if (leido) 
@@ -103,7 +102,7 @@ namespace inclui.edadfecha
 						}
 						else
 						{
-							CSComprobaciones.Continuar("No se ha DETECTADO fechas");
+							mensajeError = ("No se ha DETECTADO fechas");
 						}
 						break;
 					case 3:
@@ -114,7 +113,7 @@ namespace inclui.edadfecha
 						}
 						else
 						{
-							CSComprobaciones.Continuar("No se ha DETECTADO fechas");
+							mensajeError = ("No se ha DETECTADO fechas");
 						}
 						break;
 					case 4:
@@ -125,7 +124,7 @@ namespace inclui.edadfecha
 						}
 						else
 						{
-							CSComprobaciones.Continuar("No se ha DETECTADO fechas");
+							mensajeError =("No se ha DETECTADO fechas");
 						}						
 						break;
 					case 5:
@@ -136,7 +135,7 @@ namespace inclui.edadfecha
 						}
 						else
 						{
-							CSComprobaciones.Continuar("No se ha DETECTADO fechas");
+							mensajeError = ("No se ha DETECTADO fechas");
 						}
 						break;
 					case 6:
@@ -147,7 +146,7 @@ namespace inclui.edadfecha
 						}
 						else
 						{
-							CSComprobaciones.Continuar("No se ha DETECTADO fechas");
+							mensajeError = ("No se ha DETECTADO fechas");
 						}
 						break;
 					case 7:
@@ -158,7 +157,7 @@ namespace inclui.edadfecha
 						}
 						else
 						{
-							CSComprobaciones.Continuar("No se ha DETECTADO fechas");
+							mensajeError = ("No se ha DETECTADO fechas");
 						}
 						break;
 				}

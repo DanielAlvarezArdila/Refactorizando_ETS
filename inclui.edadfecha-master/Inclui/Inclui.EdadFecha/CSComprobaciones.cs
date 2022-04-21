@@ -9,15 +9,16 @@ namespace inclui.edadfecha
         /// </summary>
         /// <param name="mensaje">Se le pasara que fecha tiene que introducir (Primera o Segunda)</param>
         /// <returns>Devolvera un struct con la fecha y un bool si es a.C o d.C</returns>
-        public static DatosAnio.InformacionAnio SolicitarFecha(string mensaje, string idioma)
+        public static DatosAnio.InformacionAnio SolicitarFecha(string mensaje)
         {
             DatosAnio.InformacionAnio fechaAnio = new DatosAnio.InformacionAnio();
 
-            DateTime fecha = FechaCorrecta(mensaje, idioma);
+            DateTime fecha = FechaCorrecta(mensaje);
             bool antesCristo = SolicitarAntesDespuesCristo();
 
             fechaAnio.fecha = fecha;
             fechaAnio.antesCristo = antesCristo;
+            fechaAnio.Modificado = true;
 
             return fechaAnio;
 
@@ -26,71 +27,32 @@ namespace inclui.edadfecha
         /// Funcion que solicitara una fecha al usuario (No dejara de pedir hasta que no sea una fecha valida) (MODIFICADO)
         /// <param name="mensaje">Se le pasara que fecha tiene que introducir (Primera o Segunda)</param>
         /// <returns>Devolera la fecha introducida por el usuario</returns>
-        private static DateTime FechaCorrecta(string mensaje, string idiomaElegido)
+        private static DateTime FechaCorrecta(string mensaje)
         {
             bool fechaBien = false;
             DateTime fechaValida = DateTime.Now;
             do
             {
+                Console.Clear();
                 Console.WriteLine(mensaje);
                 Console.Write("Introduzca una fecha válida (dd/mm/aaaa): ");    //¿2 mensajes?
                 string fecha = Console.ReadLine();
 
-                if (fecha.Contains("/"))
+                if (fecha.Length == 10)
                 {
-                    string[] fechaPosiciones = fecha.Split('/');
-
-                    if (fechaPosiciones.Length == 3)
+                    if (DateTime.TryParse(fecha, out fechaValida))
                     {
-                        if (idiomaElegido == "eng")
-                        {
-                            if (fechaPosiciones[1].Length == 4)
-                            {
-                                if (DateTime.TryParse(fecha, out fechaValida))
-                                {
-                                    fechaBien = true;
-                                }
-                                else
-                                {
-                                    Continuar("La fecha introducida no es correcta.");
-                                }
-                            }
-                            else
-                            {
-                                Continuar("El año tiene que tener 4 numeros o menos");
-                            }
-                        } //Para el inglés
-                        else
-                        {
-                            if (fechaPosiciones[2].Length == 4)
-                            {
-                                if (DateTime.TryParse(fecha, out fechaValida))
-                                {
-                                    fechaBien = true;
-                                }
-                                else
-                                {
-                                    Continuar("La fecha introducida no es correcta.");
-                                }
-                            }
-                            else
-                            {
-                                Continuar("El año tiene que tener 4 numeros o menos");
-                            }
-                        }          //Para el español
+                        fechaBien = true;
                     }
                     else
                     {
-                        Continuar("La fecha tiene que tener tres campos");
+                        Continuar("La fecha introducida no es correcta. [dd/mm/aaaa]");
                     }
-
                 }
                 else
                 {
-                    Continuar("La fecha tiene que estar dividida por /");
+                    Continuar("El año tiene que tener 4 numeros");
                 }
-
-                
             } while (!fechaBien);
 
             return fechaValida;
@@ -116,7 +78,6 @@ namespace inclui.edadfecha
             Continuar("");
 
             return antesCristo;
-
         }
 
         /// <summary>
