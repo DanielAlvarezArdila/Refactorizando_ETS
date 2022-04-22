@@ -35,7 +35,7 @@ namespace inclui.edadfecha
             {
                 Console.Clear();
                 Console.WriteLine(mensaje);
-                Console.Write("Introduzca una fecha válida (dd/mm/aaaa): ");    //¿2 mensajes?
+                Console.Write("Introduzca una fecha válida (dd/mm/aaaa): ");    //¿2 mensajes? --NO,CSV
                 string fecha = Console.ReadLine();
 
                 if (fecha.Length == 10)

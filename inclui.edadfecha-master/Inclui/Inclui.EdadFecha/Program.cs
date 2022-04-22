@@ -81,18 +81,20 @@ namespace inclui.edadfecha
 			int opcion;
 			int diferenciaAnio;
 			int diferenciaDias;
-			bool leido = ((primeraFecha.Modificado) && (segundaFecha.Modificado));
+			
 			do
 			{
 				MostrarMenu.Menu();
 				opcion = OpcionesMenu.LeerOpciones();
 				string idioma = "eng";
 				string mensajeError = "";
+				bool leido = ((primeraFecha.Modificado) && (segundaFecha.Modificado));
 				switch (opcion)
 				{
 					case 1:
 						primeraFecha = CSComprobaciones.SolicitarFecha("Introduzca la primera fecha");
 						segundaFecha = CSComprobaciones.SolicitarFecha("Introduzca la segunda fecha");
+
 						break;
 					case 2:
 						if (leido) 
