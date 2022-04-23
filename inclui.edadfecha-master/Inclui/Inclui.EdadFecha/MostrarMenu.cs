@@ -13,28 +13,32 @@ namespace inclui.edadfecha
         /// <summary>
         /// Funcion que nos mostrara por pantalla como sera el menu
         /// </summary>
-        public static void Menu()
+        public static void Menu(string[] idiomas)
         {
             Console.WriteLine("----------------------------------------");
-            Console.WriteLine("          Elija una opción.             ");
+            Console.WriteLine(idiomas[0]);
             Console.WriteLine("----------------------------------------");
-            Console.WriteLine("1 - Introducir nuevas fechas.");
-            Console.WriteLine("2 - Calcular la edad de la primera fecha, frente a la fecha actual en años.");
-            Console.WriteLine("3 - Calcular la edad de la primera fecha, frente a la fecha actual en días.");
-            Console.WriteLine("4 - Calcular la edad de la segunda fecha, frente a la fecha actual en años.");
-            Console.WriteLine("5 - Calcular la edad de la segunda fecha, frente a la fecha actual en dias.");
-            Console.WriteLine("6 - Calcular la diferencia entre las dos fechas, en años.");
-            Console.WriteLine("7 - Calcular la diferencia entre las dos fechas, en dias.");
-            Console.WriteLine("8 - Salir del programa.");
+            Console.WriteLine(idiomas[1]);
+            Console.WriteLine(idiomas[2]);
+            Console.WriteLine(idiomas[3]);
+            Console.WriteLine(idiomas[4]);
+            Console.WriteLine(idiomas[5]);
+            Console.WriteLine(idiomas[6]);
+            Console.WriteLine(idiomas[7]);
+            Console.WriteLine(idiomas[8]);
+            Console.WriteLine(idiomas[9]);
         }
         /// <summary>
         /// Muestra el menú de Lenguajes disponibles (NUEVO)
         /// </summary>
         /// <param name="idiomas">Lista de Idiomas disponibles</param>
-        public static void Lenguaje(List<string> idiomas)
+        public static void Lenguaje(string[] idiomas)
 		{
             Console.WriteLine("*******************************************************");
-			idiomas.ForEach(idioma => Console.WriteLine(idioma));
+            foreach (string idioma in idiomas)
+            {
+                Console.WriteLine(idioma);
+            }
             Console.WriteLine("*******************************************************");
         }
     }

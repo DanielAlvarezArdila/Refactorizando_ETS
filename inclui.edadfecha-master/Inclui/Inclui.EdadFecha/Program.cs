@@ -33,20 +33,20 @@ namespace inclui.edadfecha
 		static void Main(string[] args)
 		{
 			//(MODIFICADO)
-			string[] idioma = new string[0];//EscogerLenguaje();
+			string[] idioma = EscogerLenguaje();
 			Funcionamiento(idioma);
 		}
 
 		/// <summary>
 		/// Indica al usuario el Idioma del Programa a escoger (NUEVO, INCOMPLETO)
 		/// </summary>
-		private static string[] EscogerLenguaje()
+		public static string[] EscogerLenguaje()
 		{
 			string[] auxIdioma = new string[0];
 			//HACER COMPROBACION DE CUANTOS FICHEROS EXISTEN (RETURN List<string> IDIOMAS)
 
 			//Lo que debe conteners idiomas (para un mostrado más sencillo y rápido) --> "\t- Español: esp"
-			List<string> idiomasDetectados = new List<string>(); //de 3, como ejemplo
+			string[] idiomasDetectados = { "ES", "EN", "FR" };//de 3, como ejemplo
 			bool salida = false;
 			do
 			{
@@ -84,88 +84,92 @@ namespace inclui.edadfecha
 			
 			do
 			{
-				MostrarMenu.Menu();
+				MostrarMenu.Menu(idiomas);
 				opcion = OpcionesMenu.LeerOpciones();
-				string idioma = "eng";
 				string mensajeError = "";
 				bool leido = ((primeraFecha.Modificado) && (segundaFecha.Modificado));
 				switch (opcion)
 				{
 					case 1:
-						primeraFecha = CSComprobaciones.SolicitarFecha("Introduzca la primera fecha");
-						segundaFecha = CSComprobaciones.SolicitarFecha("Introduzca la segunda fecha");
+						primeraFecha = CSComprobaciones.SolicitarFecha(idiomas[10],idiomas);
+						segundaFecha = CSComprobaciones.SolicitarFecha(idiomas[11],idiomas);
 
 						break;
 					case 2:
 						if (leido) 
 						{
 							diferenciaAnio = CSComprobaciones.DevolverDiferenciaAnios(primeraFecha, fechaActual);
-							Console.WriteLine("La diferencia de años entre {0} y {1} es de {2} años", primeraFecha.fecha, fechaActual.fecha, diferenciaAnio);
+							Console.WriteLine(idiomas[12], primeraFecha.fecha.ToShortDateString(), fechaActual.fecha.ToShortDateString(), diferenciaAnio);
 						}
 						else
 						{
-							mensajeError = ("No se ha DETECTADO fechas");
+							mensajeError = (idiomas[13]);
 						}
 						break;
 					case 3:
 						if (leido)
 						{
 						diferenciaDias = CSComprobaciones.DevolverDiferenciaDias(primeraFecha, fechaActual);
-						Console.WriteLine("La diferencia de días entre {0} y {1} es de {2} días", primeraFecha.fecha, fechaActual.fecha, diferenciaDias);
+						Console.WriteLine(idiomas[14], primeraFecha.fecha.ToShortDateString(), fechaActual.fecha.ToShortDateString(), diferenciaDias);
 						}
 						else
 						{
-							mensajeError = ("No se ha DETECTADO fechas");
+							mensajeError = (idiomas[15]);
 						}
 						break;
 					case 4:
 						if (leido)
 						{
 							diferenciaAnio = CSComprobaciones.DevolverDiferenciaAnios(segundaFecha, fechaActual);
-							Console.WriteLine("La diferencia de años entre {0} y {1} es de {2} años", segundaFecha.fecha, fechaActual.fecha, diferenciaAnio);
+							Console.WriteLine(idiomas[16], segundaFecha.fecha.ToShortDateString(), fechaActual.fecha.ToShortDateString(), diferenciaAnio);
 						}
 						else
 						{
-							mensajeError =("No se ha DETECTADO fechas");
+							mensajeError =(idiomas[17]);
 						}						
 						break;
 					case 5:
 						if (leido)
 						{
 							diferenciaDias = CSComprobaciones.DevolverDiferenciaDias(segundaFecha, fechaActual);
-							Console.WriteLine("La diferencia de días entre {0} y {1} es de {2} días", segundaFecha.fecha, fechaActual.fecha, diferenciaDias);
+							Console.WriteLine(idiomas[18], segundaFecha.fecha.ToShortDateString(), fechaActual.fecha.ToShortDateString(), diferenciaDias);
 						}
 						else
 						{
-							mensajeError = ("No se ha DETECTADO fechas");
+							mensajeError = (idiomas[19]);
 						}
 						break;
 					case 6:
 						if (leido)
 						{
 							diferenciaAnio = CSComprobaciones.DevolverDiferenciaAnios(primeraFecha, segundaFecha);
-							Console.WriteLine("La diferencia de años entre {0} y {1} es de {2} años", primeraFecha.fecha, segundaFecha.fecha, diferenciaAnio);
+							Console.WriteLine(idiomas[20], primeraFecha.fecha.ToShortDateString(), segundaFecha.fecha.ToShortDateString(), diferenciaAnio);
 						}
 						else
 						{
-							mensajeError = ("No se ha DETECTADO fechas");
+							mensajeError = (idiomas[21]);
 						}
 						break;
 					case 7:
 						if (leido)
 						{
 							diferenciaDias = CSComprobaciones.DevolverDiferenciaDias(primeraFecha, segundaFecha);
-							Console.WriteLine("La diferencia de días entre {0} y {1} es de {2} días", primeraFecha.fecha, segundaFecha.fecha, diferenciaDias);
+							Console.WriteLine(idiomas[22], primeraFecha.fecha.ToShortDateString(), segundaFecha.fecha.ToShortDateString(), diferenciaDias);
 						}
 						else
 						{
-							mensajeError = ("No se ha DETECTADO fechas");
+							mensajeError = (idiomas[23]);
 						}
 						break;
+					case 8:
+						{
+							idiomas = EscogerLenguaje();
+							break;
+						}
 				}
-				CSComprobaciones.Continuar(mensajeError);
+				CSComprobaciones.Continuar(mensajeError,idiomas);
 
-			} while (opcion != 8);
+			} while (opcion != 9);
 		}
 	}
 }

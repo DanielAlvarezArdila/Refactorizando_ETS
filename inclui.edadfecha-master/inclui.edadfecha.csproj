@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Inclui\Inclui.EdadFecha\CSIdioma.cs" />
     <Compile Include="Inclui\Inclui.EdadFecha\CSComprobaciones.cs" />
     <Compile Include="Innui\Innui.EdadFecha\DatosAnio.cs" />
     <Compile Include="Inclui\Inclui.EdadFecha\MostrarMenu.cs" />

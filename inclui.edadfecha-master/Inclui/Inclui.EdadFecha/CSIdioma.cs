@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace inclui.edadfecha.Inclui.Inclui.EdadFecha
+namespace inclui.edadfecha
 {
-    public class CSIdiomas
+    class CSIdiomas
     {
         public static string[] ReadDataFromFile(string fileName)
         {

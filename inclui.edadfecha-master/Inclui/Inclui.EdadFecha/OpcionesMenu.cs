@@ -33,6 +33,7 @@ namespace inclui.edadfecha
                     case '6': valor = 6; break;
                     case '7': valor = 7; break;
                     case '8': valor = 8; break;
+                    case '9': valor = 9; break;
                 }
 
             } while (valor == 0);
@@ -66,7 +67,7 @@ namespace inclui.edadfecha
         /// <param name="mensaje">Mensaje a Mostrar</param>
         /// <param name="lenguajes">Array que contiene los idiomas disponibles</param>
         /// <returns>Devuelve TODOS los memnsajes que se muestran por pantalla en el idioma elegido</returns>
-        public static string[] LeerOpcionesLenguaje(string mensaje, List<string> lenguajes)
+        public static string[] LeerOpcionesLenguaje(string mensaje, string[] lenguajes)
         {
 
             string[] idiomaElegido = new string[0];
@@ -78,14 +79,14 @@ namespace inclui.edadfecha
                 switch (opcion)
                 {
                     /*CARGAR FICHERO EN MEMORIA*/
-                    case "ES": idiomaElegido = new string[1]; break;       //Español
-                    case "EN": idiomaElegido = new string[1]; break;       //Inglés
-                    case "FR": idiomaElegido = new string[1]; break;       //Francés
+                    case "ES": idiomaElegido = CSIdiomas.ReadDataFromFile("ES.txt"); break;       //Español
+                    case "EN": idiomaElegido = CSIdiomas.ReadDataFromFile("EN.txt"); break;       //Inglés
+                    case "FR": idiomaElegido = CSIdiomas.ReadDataFromFile("FR.txt"); break;       //Francés
                 }
             }
 			else
 			{
-                CSComprobaciones.Continuar("Idioma No Válido");
+                CSComprobaciones.Continuar("Language not implemented", idiomaElegido);
 			}
 
             return idiomaElegido;

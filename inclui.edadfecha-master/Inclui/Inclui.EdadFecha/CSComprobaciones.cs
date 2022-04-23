@@ -9,12 +9,12 @@ namespace inclui.edadfecha
         /// </summary>
         /// <param name="mensaje">Se le pasara que fecha tiene que introducir (Primera o Segunda)</param>
         /// <returns>Devolvera un struct con la fecha y un bool si es a.C o d.C</returns>
-        public static DatosAnio.InformacionAnio SolicitarFecha(string mensaje)
+        public static DatosAnio.InformacionAnio SolicitarFecha(string mensaje,string[] idiomas)
         {
             DatosAnio.InformacionAnio fechaAnio = new DatosAnio.InformacionAnio();
 
-            DateTime fecha = FechaCorrecta(mensaje);
-            bool antesCristo = SolicitarAntesDespuesCristo();
+            DateTime fecha = FechaCorrecta(mensaje,idiomas);
+            bool antesCristo = SolicitarAntesDespuesCristo(idiomas);
 
             fechaAnio.fecha = fecha;
             fechaAnio.antesCristo = antesCristo;
@@ -27,7 +27,7 @@ namespace inclui.edadfecha
         /// Funcion que solicitara una fecha al usuario (No dejara de pedir hasta que no sea una fecha valida) (MODIFICADO)
         /// <param name="mensaje">Se le pasara que fecha tiene que introducir (Primera o Segunda)</param>
         /// <returns>Devolera la fecha introducida por el usuario</returns>
-        private static DateTime FechaCorrecta(string mensaje)
+        private static DateTime FechaCorrecta(string mensaje,string[] idiomas)
         {
             bool fechaBien = false;
             DateTime fechaValida = DateTime.Now;
@@ -35,7 +35,7 @@ namespace inclui.edadfecha
             {
                 Console.Clear();
                 Console.WriteLine(mensaje);
-                Console.Write("Introduzca una fecha válida (dd/mm/aaaa): ");    //¿2 mensajes? --NO,CSV
+                Console.Write(idiomas[22]);    //¿2 mensajes? --NO,CSV
                 string fecha = Console.ReadLine();
 
                 if (fecha.Length == 10)
@@ -46,12 +46,12 @@ namespace inclui.edadfecha
                     }
                     else
                     {
-                        Continuar("La fecha introducida no es correcta. [dd/mm/aaaa]");
+                        Continuar(idiomas[23], idiomas);
                     }
                 }
                 else
                 {
-                    Continuar("El año tiene que tener 4 numeros");
+                    Continuar(idiomas[24], idiomas);
                 }
             } while (!fechaBien);
 
@@ -62,12 +62,12 @@ namespace inclui.edadfecha
         /// Funcion que se encargara de pedir al usuario si la fecha es a.C o d.C
         /// </summary>
         /// <returns>Devolvera un bool true si es a.C o false si es d.C</returns>
-        private static bool SolicitarAntesDespuesCristo()
+        private static bool SolicitarAntesDespuesCristo(string[] idiomas)
         {
             bool antesCristo = false;
 
-            Console.WriteLine("Indique si el año es antes de cristo o despues");
-            Console.WriteLine("Pulse 's' para a.C o 'n' para d.C");
+            Console.WriteLine(idiomas[25]);
+            Console.WriteLine(idiomas[26]);
             char Fecha = OpcionesMenu.LeerOpcionFecha();
 
             if (Fecha == 's')
@@ -75,7 +75,7 @@ namespace inclui.edadfecha
                 antesCristo = true;
             }
 
-            Continuar("");
+            Continuar("",idiomas);
 
             return antesCristo;
         }
@@ -213,13 +213,18 @@ namespace inclui.edadfecha
         /// <summary>
         /// Fución la cual usaremos para cada vez que hagamos un paso limpiar pantalla, y si hay un error, lo muestra (MODIFICADO)
         /// </summary>
-        public static void Continuar(string mensaje)
+        public static void Continuar(string mensaje, string[] idiomas)
         {
+            if (idiomas.Length==0)
+            {
+                Array.Resize(ref idiomas, 28);
+                idiomas[27] = "Press a key to continue";
+            }
 			if (mensaje != "")
 			{
 				Console.WriteLine("\nERROR: " + mensaje + "...");
 			}
-            Console.WriteLine("\nPulse una tecla para continuar.");
+            Console.WriteLine(idiomas[27]);
             Console.ReadKey(true);
             Console.Clear();
         }
