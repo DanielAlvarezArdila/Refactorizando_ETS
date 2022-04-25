@@ -223,14 +223,14 @@ namespace inclui.edadfecha
         {
             if (idiomas.Length==0)
             {
-                Array.Resize(ref idiomas, 29);
-                idiomas[28] = "Press a key to continue";
+                Array.Resize(ref idiomas, 30);
+                idiomas[29] = "Press a key to continue";
             }
 			if (mensaje != "")
 			{
 				Console.WriteLine("\nERROR: " + mensaje + "...");
 			}
-            Console.WriteLine(idiomas[28]);
+            Console.WriteLine(idiomas[29]);
             Console.ReadKey(true);
             Console.Clear();
         }

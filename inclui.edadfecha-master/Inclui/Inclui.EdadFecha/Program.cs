@@ -170,6 +170,11 @@ namespace inclui.edadfecha
 				CSComprobaciones.Continuar(mensajeError,idiomas);
 
 			} while (opcion != 9 ||error==true);
+            if (error)
+            {
+                Console.WriteLine(idiomas[28]);
+
+			}
 		}
 	}
 }
