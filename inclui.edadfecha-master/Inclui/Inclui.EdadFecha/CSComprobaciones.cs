@@ -96,7 +96,7 @@ namespace inclui.edadfecha
              * hasta ese año despues de cristo, luego le sumara el resto de años normales
              * despues de cristo entre esos dos años
             */
-
+            bool error = false;
             int anioPrimeraFecha = primeraFecha.fecha.Year;
             int anioSegundaFecha = segundaFecha.fecha.Year;
             int anioDiferencia = Math.Abs(anioSegundaFecha - anioPrimeraFecha);
@@ -172,6 +172,11 @@ namespace inclui.edadfecha
                     }
                 }
             }
+            if (anioDiferencia<0)
+            {
+                error = true;
+                
+            }
 
             return anioDiferencia;
 
@@ -188,7 +193,7 @@ namespace inclui.edadfecha
         public static int DevolverDiferenciaDias(DatosAnio.InformacionAnio primeraFecha, DatosAnio.InformacionAnio segundaFecha)
         {
             int numeroDiasTotales = Math.Abs((int)(segundaFecha.fecha - primeraFecha.fecha).TotalDays);
-
+            bool error = false;
             //Si alguna de las dos fechas es a.C, se encargara de calcular los dias
             //desde la fecha antes de cristo, hasta la fecha 0, luego desde la fecha 0 hasta la fecha a.C,
             //pero ya d.C, más la diferencia entre la primera fecha y segunda como si fueran las dos d.C
@@ -204,6 +209,10 @@ namespace inclui.edadfecha
                 {
                     numeroDiasTotales += (int)((segundaFecha.fecha - primerAnio).TotalDays) * 2;
                 }
+            }
+            if (numeroDiasTotales<0)
+            {
+                error=true;
             }
             return numeroDiasTotales;
         }
