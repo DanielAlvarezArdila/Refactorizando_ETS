@@ -81,7 +81,7 @@ namespace inclui.edadfecha
 			int opcion;
 			int diferenciaAnio;
 			int diferenciaDias;
-			
+			bool error = false;
 			do
 			{
 				MostrarMenu.Menu(idiomas);
@@ -98,7 +98,7 @@ namespace inclui.edadfecha
 					case 2:
 						if (leido) 
 						{
-							diferenciaAnio = CSComprobaciones.DevolverDiferenciaAnios(primeraFecha, fechaActual);
+							diferenciaAnio = CSComprobaciones.DevolverDiferenciaAnios(primeraFecha, fechaActual,ref error);
 							Console.WriteLine(idiomas[12], primeraFecha.fecha.ToShortDateString(), fechaActual.fecha.ToShortDateString(), diferenciaAnio);
 						}
 						else
@@ -109,7 +109,7 @@ namespace inclui.edadfecha
 					case 3:
 						if (leido)
 						{
-						diferenciaDias = CSComprobaciones.DevolverDiferenciaDias(primeraFecha, fechaActual);
+						diferenciaDias = CSComprobaciones.DevolverDiferenciaDias(primeraFecha, fechaActual, ref error);
 						Console.WriteLine(idiomas[14], primeraFecha.fecha.ToShortDateString(), fechaActual.fecha.ToShortDateString(), diferenciaDias);
 						}
 						else
@@ -120,7 +120,7 @@ namespace inclui.edadfecha
 					case 4:
 						if (leido)
 						{
-							diferenciaAnio = CSComprobaciones.DevolverDiferenciaAnios(segundaFecha, fechaActual);
+							diferenciaAnio = CSComprobaciones.DevolverDiferenciaAnios(segundaFecha, fechaActual, ref error);
 							Console.WriteLine(idiomas[16], segundaFecha.fecha.ToShortDateString(), fechaActual.fecha.ToShortDateString(), diferenciaAnio);
 						}
 						else
@@ -131,7 +131,7 @@ namespace inclui.edadfecha
 					case 5:
 						if (leido)
 						{
-							diferenciaDias = CSComprobaciones.DevolverDiferenciaDias(segundaFecha, fechaActual);
+							diferenciaDias = CSComprobaciones.DevolverDiferenciaDias(segundaFecha, fechaActual, ref error);
 							Console.WriteLine(idiomas[18], segundaFecha.fecha.ToShortDateString(), fechaActual.fecha.ToShortDateString(), diferenciaDias);
 						}
 						else
@@ -142,7 +142,7 @@ namespace inclui.edadfecha
 					case 6:
 						if (leido)
 						{
-							diferenciaAnio = CSComprobaciones.DevolverDiferenciaAnios(primeraFecha, segundaFecha);
+							diferenciaAnio = CSComprobaciones.DevolverDiferenciaAnios(primeraFecha, segundaFecha, ref error);
 							Console.WriteLine(idiomas[20], primeraFecha.fecha.ToShortDateString(), segundaFecha.fecha.ToShortDateString(), diferenciaAnio);
 						}
 						else
@@ -153,7 +153,7 @@ namespace inclui.edadfecha
 					case 7:
 						if (leido)
 						{
-							diferenciaDias = CSComprobaciones.DevolverDiferenciaDias(primeraFecha, segundaFecha);
+							diferenciaDias = CSComprobaciones.DevolverDiferenciaDias(primeraFecha, segundaFecha, ref error);
 							Console.WriteLine(idiomas[22], primeraFecha.fecha.ToShortDateString(), segundaFecha.fecha.ToShortDateString(), diferenciaDias);
 						}
 						else
@@ -169,7 +169,7 @@ namespace inclui.edadfecha
 				}
 				CSComprobaciones.Continuar(mensajeError,idiomas);
 
-			} while (opcion != 9);
+			} while (opcion != 9 ||error==true);
 		}
 	}
 }

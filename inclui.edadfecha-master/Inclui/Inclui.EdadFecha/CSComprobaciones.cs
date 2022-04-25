@@ -86,7 +86,7 @@ namespace inclui.edadfecha
         /// <param name="primeraFecha">Se le pasara la primera fecha puesta por el usuario</param>
         /// <param name="segundaFecha">Se le pasara la segunda fecha puesta por el usuario</param>
         /// <returns>Devolvera los años de diferencia</returns>
-        public static int DevolverDiferenciaAnios(DatosAnio.InformacionAnio primeraFecha, DatosAnio.InformacionAnio segundaFecha)
+        public static int DevolverDiferenciaAnios(DatosAnio.InformacionAnio primeraFecha, DatosAnio.InformacionAnio segundaFecha,ref bool error)
         {
 
 
@@ -96,7 +96,6 @@ namespace inclui.edadfecha
              * hasta ese año despues de cristo, luego le sumara el resto de años normales
              * despues de cristo entre esos dos años
             */
-            bool error = false;
             int anioPrimeraFecha = primeraFecha.fecha.Year;
             int anioSegundaFecha = segundaFecha.fecha.Year;
             int anioDiferencia = Math.Abs(anioSegundaFecha - anioPrimeraFecha);
@@ -174,8 +173,7 @@ namespace inclui.edadfecha
             }
             if (anioDiferencia<0)
             {
-                error = true;
-                
+                error = true;               
             }
 
             return anioDiferencia;
@@ -190,10 +188,10 @@ namespace inclui.edadfecha
         /// <param name="segundaFecha">Se le pasara la segunda fecha puesta por el usuario</param>
         /// <returns>Devolvera los dias de diferencia</returns>
         /// 
-        public static int DevolverDiferenciaDias(DatosAnio.InformacionAnio primeraFecha, DatosAnio.InformacionAnio segundaFecha)
+        public static int DevolverDiferenciaDias(DatosAnio.InformacionAnio primeraFecha, DatosAnio.InformacionAnio segundaFecha,ref bool error)
         {
             int numeroDiasTotales = Math.Abs((int)(segundaFecha.fecha - primeraFecha.fecha).TotalDays);
-            bool error = false;
+
             //Si alguna de las dos fechas es a.C, se encargara de calcular los dias
             //desde la fecha antes de cristo, hasta la fecha 0, luego desde la fecha 0 hasta la fecha a.C,
             //pero ya d.C, más la diferencia entre la primera fecha y segunda como si fueran las dos d.C
