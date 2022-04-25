@@ -46,7 +46,7 @@ namespace inclui.edadfecha
 			//HACER COMPROBACION DE CUANTOS FICHEROS EXISTEN (RETURN List<string> IDIOMAS)
 
 			//Lo que debe conteners idiomas (para un mostrado más sencillo y rápido) --> "\t- Español: esp"
-			string[] idiomasDetectados = { "ES", "EN", "FR" };//de 3, como ejemplo
+			string[] idiomasDetectados = { "ES-Español", "EN-English", "FR-Français", "DE- Deutsch","IT-Italiano" };//de 3, como ejemplo
 			bool salida = false;
 			do
 			{

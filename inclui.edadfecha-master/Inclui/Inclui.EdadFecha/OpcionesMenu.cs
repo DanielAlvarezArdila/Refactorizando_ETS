@@ -82,6 +82,8 @@ namespace inclui.edadfecha
                     case "ES": idiomaElegido = CSIdiomas.ReadDataFromFile("ES.txt"); break;       //Español
                     case "EN": idiomaElegido = CSIdiomas.ReadDataFromFile("EN.txt"); break;       //Inglés
                     case "FR": idiomaElegido = CSIdiomas.ReadDataFromFile("FR.txt"); break;       //Francés
+                    case "DE": idiomaElegido = CSIdiomas.ReadDataFromFile("DE.txt"); break;       //Alemán
+                    case "IT": idiomaElegido = CSIdiomas.ReadDataFromFile("IT.txt"); break;       //Italiano
                 }
             }
 			else

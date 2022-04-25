@@ -35,7 +35,6 @@ namespace inclui.edadfecha
             {
                 Console.Clear();
                 Console.WriteLine(mensaje);
-                Console.Write(idiomas[22]);    //¿2 mensajes? --NO,CSV
                 string fecha = Console.ReadLine();
 
                 if (fecha.Length == 10)
@@ -46,12 +45,12 @@ namespace inclui.edadfecha
                     }
                     else
                     {
-                        Continuar(idiomas[23], idiomas);
+                        Continuar(idiomas[24], idiomas);
                     }
                 }
                 else
                 {
-                    Continuar(idiomas[24], idiomas);
+                    Continuar(idiomas[25], idiomas);
                 }
             } while (!fechaBien);
 
@@ -66,8 +65,8 @@ namespace inclui.edadfecha
         {
             bool antesCristo = false;
 
-            Console.WriteLine(idiomas[25]);
             Console.WriteLine(idiomas[26]);
+            Console.WriteLine(idiomas[27]);
             char Fecha = OpcionesMenu.LeerOpcionFecha();
 
             if (Fecha == 's')
@@ -217,14 +216,14 @@ namespace inclui.edadfecha
         {
             if (idiomas.Length==0)
             {
-                Array.Resize(ref idiomas, 28);
-                idiomas[27] = "Press a key to continue";
+                Array.Resize(ref idiomas, 29);
+                idiomas[28] = "Press a key to continue";
             }
 			if (mensaje != "")
 			{
 				Console.WriteLine("\nERROR: " + mensaje + "...");
 			}
-            Console.WriteLine(idiomas[27]);
+            Console.WriteLine(idiomas[28]);
             Console.ReadKey(true);
             Console.Clear();
         }
