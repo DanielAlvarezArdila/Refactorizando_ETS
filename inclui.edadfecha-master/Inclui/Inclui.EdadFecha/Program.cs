@@ -50,9 +50,9 @@ namespace inclui.edadfecha
 			bool salida = false;
 			do
 			{				
-				auxIdioma = OpcionesMenu.LeerOpcionesLenguaje("Choose an Option: ", idiomasDetectados); 
-				MostrarMenu.Lenguaje(idiomasDetectados);
 
+				MostrarMenu.Lenguaje(idiomasDetectados);
+				auxIdioma = OpcionesMenu.LeerOpcionesLenguaje("Choose an Option: ", idiomasDetectados); 
 
 				if (auxIdioma.Length > 0)
 				{
