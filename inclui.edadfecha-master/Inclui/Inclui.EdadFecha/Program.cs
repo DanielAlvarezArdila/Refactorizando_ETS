@@ -46,12 +46,13 @@ namespace inclui.edadfecha
 			//HACER COMPROBACION DE CUANTOS FICHEROS EXISTEN (RETURN List<string> IDIOMAS)
 
 			//Lo que debe conteners idiomas (para un mostrado más sencillo y rápido) --> "\t- Español: esp"
-			string[] idiomasDetectados = { "ES-Español", "EN-English", "FR-Français", "DE- Deutsch","IT-Italiano" };//de 3, como ejemplo
+			string[] idiomasDetectados = { "\tES-Español", "\tEN-English", "\tFR-Français", "\tDE-Deutsch", "\tIT-Italiano" };//de 3, como ejemplo
 			bool salida = false;
 			do
-			{
+			{				
+				auxIdioma = OpcionesMenu.LeerOpcionesLenguaje("Choose an Option: ", idiomasDetectados); 
 				MostrarMenu.Lenguaje(idiomasDetectados);
-				auxIdioma = OpcionesMenu.LeerOpcionesLenguaje("Choose an Option: ", idiomasDetectados);        //NO TRADUCIR
+
 
 				if (auxIdioma.Length > 0)
 				{
