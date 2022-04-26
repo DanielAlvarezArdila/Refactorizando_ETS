@@ -12,9 +12,10 @@ namespace inclui.edadfecha
         public static string[] ReadDataFromFile(string fileName)
         {
             string[] fileLines = new string[0];
+            
             try
             {
-                StreamReader inputFile = new StreamReader(fileName);
+                StreamReader inputFile = new StreamReader(fileName);           //Cambio
                 while (!inputFile.EndOfStream)
                 {
                     Array.Resize(ref fileLines, fileLines.Length + 1);

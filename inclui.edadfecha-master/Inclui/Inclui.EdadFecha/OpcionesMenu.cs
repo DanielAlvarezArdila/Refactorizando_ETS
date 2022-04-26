@@ -76,6 +76,7 @@ namespace inclui.edadfecha
 
             if (lenguajes.Contains(opcion))
             {
+                
                 switch (opcion)
                 {
                     /*CARGAR FICHERO EN MEMORIA*/
