@@ -1,0 +1,30 @@
+Choisis une option.
+1- Saisissez de nouvelles dates.
+2- Calculez les années de différence entre la première date et celle en cours.
+3- Calculez les jours de différence entre la première date et celle en cours.
+4- Calculez les années de différence entre la deuxième date et celle en cours.
+5- Calculez les jours de différence entre la deuxième date et celle en cours.
+6- Calculez la différence entre les dates, en années.
+7- Calculez la différence entre les dates, en jours.
+8- Changer de langue.
+9- Quittez le programme.
+Entrez la première date :
+Entrez la deuxième date :
+La différence en années entre {0} et {1} est de {2} ans.
+Aucune date n'a été INSÉRÉE.
+La différence en jours entre {0} et {1} est de {2} jours.
+Aucune date n'a été INSÉRÉE.
+La différence en années entre {0} et {1} est de {2} ans.
+Aucune date n'a été INSÉRÉE.
+La différence en jours entre {0} et {1} est de {2} jours.
+Aucune date n'a été INSÉRÉE.
+La différence en années entre {0} et {1} est de {2} ans.
+Aucune date n'a été INSÉRÉE.
+La différence en jours entre {0} et {1} est de {2} jours.
+Aucune date n'a été INSÉRÉE.
+La date saisie n'est pas valide.
+L'entrée n'est pas dans un format à 10 chiffres.
+Indiquez si la date est Avant ou Après Jésus-Christ.
+Appuyez sur S pour AC ou N pour DC.
+Une erreur est survenue.
+Appuyez sur une touche pour continuer

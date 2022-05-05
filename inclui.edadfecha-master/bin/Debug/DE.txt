@@ -1,0 +1,30 @@
+Wähle eine Option.
+1- Geben Sie neue Daten ein.
+2- Berechnen Sie die Jahre der Differenz zwischen dem ersten Datum und dem aktuellen.
+3- Berechnen Sie die Tage der Differenz zwischen dem ersten Datum und dem aktuellen.
+4- Berechnen Sie die Jahre der Differenz zwischen dem zweiten Datum und dem aktuellen.
+5- Berechnen Sie die Tage der Differenz zwischen dem zweiten Datum und dem aktuellen.
+6- Berechnen Sie die Differenz zwischen den Daten in Jahren.
+7- Berechnen Sie die Differenz zwischen den Daten in Tagen.
+8- Sprache ändern.
+9- Beenden Sie das Programm.
+Geben Sie das erste Datum ein:
+Geben Sie das zweite Datum ein:
+Der Jahresunterschied zwischen {0} und {1} beträgt {2} Jahre.
+Es wurden keine Daten eingefügt.
+Der Unterschied in Tagen zwischen {0} und {1} beträgt {2} Tage.
+Es wurden keine Daten eingefügt.
+Der Jahresunterschied zwischen {0} und {1} beträgt {2} Jahre.
+Es wurden keine Daten eingefügt.
+Der Unterschied in Tagen zwischen {0} und {1} beträgt {2} Tage.
+Es wurden keine Daten eingefügt.
+Der Jahresunterschied zwischen {0} und {1} beträgt {2} Jahre.
+Es wurden keine Daten eingefügt.
+Der Unterschied in Tagen zwischen {0} und {1} beträgt {2} Tage.
+Es wurden keine Daten eingefügt.
+Das eingegebene Datum ist ungültig.
+Die Eingabe erfolgt nicht im 10-stelligen Format.
+Geben Sie ein, ob das Datum vor oder nach Christus ist.
+Drücken Sie S für AC oder N für DC.
+Ein Fehler ist aufgetreten.
+Drücken Sie eine Taste, um fortzufahren

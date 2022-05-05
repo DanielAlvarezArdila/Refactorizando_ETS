@@ -1,0 +1,30 @@
+Scegliere un'opzione.
+1- Inserisci nuove date.
+2- Calcola gli anni di differenza tra la prima data e quella attuale.
+3- Calcola i giorni di differenza tra la prima data e quella corrente.
+4- Calcola gli anni di differenza tra la seconda data e quella attuale.
+5- Calcola i giorni di differenza tra la seconda data e quella attuale.
+6- Calcola la differenza tra le date, in anni.
+7- Calcola la differenza tra le date, in giorni.
+8- Cambia lingua.
+9- Uscire dal programma.
+Inserisci la prima data:
+Inserisci la seconda data:
+La differenza in anni tra {0} e {1} è di {2} anni.
+Nessuna data è stata INSERITA.
+La differenza in giorni tra {0} e {1} è di {2} giorni.
+Nessuna data è stata INSERITA.
+La differenza in anni tra {0} e {1} è di {2} anni.
+Nessuna data è stata INSERITA.
+La differenza in giorni tra {0} e {1} è di {2} giorni.
+Nessuna data è stata INSERITA.
+La differenza in anni tra {0} e {1} è di {2} anni.
+Nessuna data è stata INSERITA.
+La differenza in giorni tra {0} e {1} è di {2} giorni.
+Nessuna data è stata INSERITA.
+La data inserita non è valida.
+L'input non è in un formato a 10 cifre.
+Immettere se la data è Prima o Dopo Cristo.
+Premere S per AC o N per DC.
+C'è stato un errore.
+Premere un tasto per continuare

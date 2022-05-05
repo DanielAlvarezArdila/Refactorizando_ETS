@@ -1,0 +1,30 @@
+Choose an option.
+1- Enter new dates.
+2- Calculate the years of difference between the first date and the current one.
+3- Calculate the days of difference between the first date and the current one.
+4- Calculate the years of difference between the second date and the current one.
+5- Calculate the days of difference between the second date and the current one.
+6- Calculate the difference between the dates, in years.
+7- Calculate the difference between the dates, in days.
+8- Change language.
+9- Exit the program.
+Enter the first date:
+Enter the second date:
+The difference in years between {0} and {1} is {2} years.
+No dates have been INSERT.
+The difference in days between {0} and {1} is {2} days.
+No dates have been INSERT.
+The difference in years between {0} and {1} is {2} years.
+No dates have been INSERT.
+The difference in days between {0} and {1} is {2} days.
+No dates have been INSERT.
+The difference in years between {0} and {1} is {2} years.
+No dates have been INSERT.
+The difference in days between {0} and {1} is {2} days.
+No dates have been INSERT.
+The entered date is not valid.
+The input is not in a 10-digit format.
+Enter if the date is Before or After Christ.
+Press S for AC or N for DC.
+An error has ocurred...
+Press a key to continue
